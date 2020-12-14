@@ -11,7 +11,7 @@ app = dash.Dash(__name__)
 
 # ------------------------------------------------------------------------------
 # Import and clean data (importing csv into pandas)
-df = pd.read_csv("../tweets_labelled/20201210_185210_full_df.csv")
+df = pd.read_csv("../tweets_labelled/20201214_141345_full_df.csv")
 df.reset_index(inplace=True)
 print(df[:5])
 
@@ -27,11 +27,11 @@ app.layout = html.Div([
     #select Affected by reason
     dcc.Dropdown(id='slct_affectedBy',
                 options=[
-                    {"label": "Disease", "value":"Disease"},
-                    {"label": "Pesticides", "value":"Pesticides"},
-                    {"label": "Unknown", "value":"Unknown"}],
+                    {"label": "Dec 1, 2020", "value":"2020-12-01"},
+                    {"label": "Dec 2, 2020", "value":"2020-12-02"},
+                    {"label": "Dec 3, 2020", "value":"2020-12-03"}],
                 multi=False,
-                value='Dec 2',
+                value='2020-12-01',
                 style={'width':"40%"} 
                 ),
 
@@ -67,11 +67,15 @@ def update_graph(option_slctd):
     print(option_slctd)
     print(type(option_slctd))
 
-    #container = "The year chosen by user was: {}".format(option_slctd)
-    container = "The Affected by reason chosen by user was: {}".format(option_slctd)
+    container = "Sentiment chart for: {}".format(option_slctd)
 
     #df processing for line graph
     dff = df.copy()
+    
+    #filter only selected date
+    dff=dff[dff.date==option_slctd]
+
+    #value for pie chart
     dff['sentiment_numbers']=1
 
     #line graph

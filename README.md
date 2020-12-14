@@ -1,5 +1,5 @@
 # sentiment-analysis
-Sentiment analysis for stock movement prediction
+Sentiment analysis for stock movement prediction. Final project for the course Practical Natural Language Processing at NYU.
 
 ## Usage
 Run `sentiment_analysis_bert.ipynb` to train and test the bert model for sentiment classification

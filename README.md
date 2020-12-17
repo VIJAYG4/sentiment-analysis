@@ -1,5 +1,6 @@
 # sentiment-analysis
 Sentiment analysis for stock movement prediction. Final project for the course Practical Natural Language Processing at NYU.
+PS: This is my last project as grad student at NYU. Senti hitting hard :' 
 
 ## Usage
 Run `sentiment_analysis_bert.ipynb` to train and test the bert model for sentiment classification
